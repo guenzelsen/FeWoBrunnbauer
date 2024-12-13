@@ -5,8 +5,8 @@ export const initRouter = () => {
     const router = new Router(outlet);
     router.setRoutes([
         { path: '/', component: 'apartment-welcome' },
-        { path: '/appone', component: 'apartment-welcome' },
-        { path: '/apptwo', component: 'apartment-welcome' },
+        { path: '/apartment/1', component: 'apartment-detail-first' },
+        { path: '/apartment/2', component: 'apartment-detail-second' },
         { path: '/impressum', component: 'impressum-component' }
     ]);
 };
