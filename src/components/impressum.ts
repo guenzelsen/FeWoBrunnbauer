@@ -1,6 +1,12 @@
 import { LitElement, html, css } from 'lit';
 
 export class Impressum extends LitElement {
+    private description: string = "Gerne können Sie auch telefonisch bei uns buchen, rufen Sie uns an unter Tel. 09921/959790 oder Mobil. 0151/28991796.\n" +
+        "Wir möchten Ihnen das Buchen oder Anfrage so einfach und schnell wie möglich anbieten, deshalb verzichten wir auf ein Kontaktformular.\n" +
+        "Zögern Sie nicht und rufen Sie uns an, wir werden alle Ihre Fragen beantworten.\n\n" +
+        "Wir freuen uns auf Ihre Nachricht oder Anruf.\n\n" +
+        "Ihre Familie Brunnbauer";
+
     static styles = css`
     :host {
       display: block;
@@ -35,13 +41,17 @@ export class Impressum extends LitElement {
 
     render() {
         return html`
-      <h2>Kontaktinformationen</h2>
+      <h2>Kontakt:</h2>
+      <p>Unsere E-Mail-Adressen:</p>
+      <a href="mailto:Fwh.gartenblick@gmail.com">Fwh.gartenblick@gmail.com</a><br>
+      <a href="mailto:Fwh.rachelblick@gmail.com">Fwh.rachelblick@gmail.com</a><br>
+      <p>Unsere Adresse:</p>
       <address>
-        <strong>Name:</strong> Max Mustermann<br>
-        <strong>Adresse:</strong> Example Street 42, 12345 Berlin, Germany<br>
-        <strong>Telefon:</strong> <a href="tel:+491234567890">+49 123 456 7890</a><br>
-        <strong>Email:</strong> <a href="mailto:info@dreamapartments.de">info@dreamapartments.de</a><br>
+          <p>Ferienhaus Brunnbauer</p>
+          <p>Regenerstraße 11</p>
+          <p>94264 Langdorf</p>
       </address>
+      <p>${this.description}</p>
     `;
     }
 }
