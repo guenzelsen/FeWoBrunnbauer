@@ -26,13 +26,6 @@ export class ApartmentWelcome extends LitElement {
             width: 15%;
             padding: 50px;
         }
-        .apartments {
-            display: flex;
-            flex-direction: row;
-        }
-        apartment-card-first, apartment-card-second {
-            width: 45%;
-        }
     `;
 
     render() {
@@ -52,10 +45,6 @@ export class ApartmentWelcome extends LitElement {
                 <div class="welcome-right">
                     <img src="/images/haus.png" alt="Welcome Image">
                 </div>
-            </div>
-            <div class="apartments">
-                <apartment-card-first></apartment-card-first>
-                <apartment-card-second></apartment-card-second>
             </div>
         `;
     }
