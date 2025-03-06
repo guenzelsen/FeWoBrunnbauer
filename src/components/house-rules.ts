@@ -1,5 +1,7 @@
 import {html, LitElement} from "lit";
+import {customElement} from "lit/decorators.js";
 
+@customElement('house-rules')
 export class HouseRules extends LitElement {
     render() {
         return html`
@@ -7,5 +9,3 @@ export class HouseRules extends LitElement {
         `;
     }
 }
-
-customElements.define('house-rules', HouseRules);

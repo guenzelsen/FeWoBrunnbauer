@@ -1,5 +1,7 @@
 import {css, html, LitElement} from "lit";
+import {customElement} from "lit/decorators.js";
 
+@customElement('apartment-card-first')
 export class ApartmentCardFirst extends LitElement {
     static styles = css`
         :host {
@@ -36,5 +38,3 @@ export class ApartmentCardFirst extends LitElement {
         `;
     }
 }
-
-customElements.define('apartment-card-first', ApartmentCardFirst);

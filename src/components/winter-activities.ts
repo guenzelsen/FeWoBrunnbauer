@@ -1,37 +1,38 @@
-import {html, LitElement} from "lit";
+import {css, html, LitElement} from "lit";
+import {customElement} from "lit/decorators.js";
 
+@customElement('winter-activities')
 export class WinterActivities extends LitElement {
-    private langdorfText: string = "Diese 1,1 km lange Langlaufloipe eignet sich hervorragend als Übungs- und Trainingsrunde und ist sowohl für Diagonal- als auch für Skatingtechnik präpariert. " +
-        "Längere, bestens präparierte Loipen befinden sich in der näheren Umgebung.";
-
-    private silberbergText: string = "Praktisch vor der Haustür lockt das familienfreundliche Skigebiet Silberberg mit dem Kinder-Skipark – ideal für die ersten Steh- und Rutschversuche auf zwei Brettern.";
-
-    private arberText: string = "Der 1456 m hohe Große Arber bietet ausgedehnte Abfahrten in allen Schwierigkeitsgraden. " +
-        "Eine moderne Gondelbahn, zwei 6er-Sesselbahnen und mehrere Schlepplifte bringen große und kleine Skifahrer sowie Snowboarder, Skitourengeher und Besucher in wenigen Minuten hinein ins Skivergnügen.\n" +
-        "Das Loipennetz im Aktivzentrum Bodenmais am Bretterschachten zählt zu den besten und schneesichersten Skilanglaufgebieten in Mitteleuropa." +
-        "114 Loipenkilometer für die klassische Technik und 110 km für die Skating-Technik bieten auf einer Höhe zwischen 1100 und 1300 Metern Laufspaß pur.";
-
-    private snowshoeText: string = "Erleben Sie den unberührten Winterwald, Natur und glitzernden Schnee auf einer Schneeschuhtour durch das Winterwonderland rund um Langdorf. Vorkenntnisse sind nicht erforderlich.";
-
-    private stadiumText: string = "Die Eishalle Regen bietet im Winter für Familien Freizeitspaß für Groß und Klein.\n" +
-        "Der Öffenltich eislauf ist ein Spaß für die ganze Familie. Egal, ob es draußen regnet oder die Sonne scheint, hier kann man sich jeden Dienstag, Mittwoch und Sonntag so richtig austoben.";
-
+    static styles = css`
+        :host {
+            display: block;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f9;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem auto;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    `;
     render() {
         return html`
             <h1>Winter in Langdorf</h1>
             <p>Langdorf und seine Umgebung bieten eine Vielzahl von Wintersportmöglichkeiten.</p>
             <h2>Flutlichtloipe Langdorf</h2>
-            <p>${this.langdorfText}</p>
+            <p>Diese 1,1 km lange Langlaufloipe eignet sich hervorragend als Übungs- und Trainingsrunde und ist sowohl für Diagonal- als auch für Skatingtechnik präpariert. Längere, bestens präparierte Loipen befinden sich in der näheren Umgebung.</p>
             <h2>Skigebiet Silberberg</h2>
-            <p>${this.silberbergText}</p>
+            <p>Praktisch vor der Haustür lockt das familienfreundliche Skigebiet Silberberg mit dem Kinder-Skipark – ideal für die ersten Steh- und Rutschversuche auf zwei Brettern.</p>
             <h2>Familienspaß Großer Arber</h2>
-            <p>${this.arberText}</p>
+            <p>Der 1456 m hohe Große Arber bietet ausgedehnte Abfahrten in allen Schwierigkeitsgraden. Eine moderne Gondelbahn, zwei 6er-Sesselbahnen und mehrere Schlepplifte bringen große und kleine Skifahrer sowie Snowboarder, Skitourengeher und Besucher in wenigen Minuten hinein ins Skivergnügen.</p>
+            <p>Das Loipennetz im Aktivzentrum Bodenmais am Bretterschachten zählt zu den besten und schneesichersten Skilanglaufgebieten in Mitteleuropa. 114 Loipenkilometer für die klassische Technik und 110 km für die Skating-Technik bieten auf einer Höhe zwischen 1100 und 1300 Metern Laufspaß pur.</p>
             <h2>Schneeschuhtouren</h2>
-            <p>${this.snowshoeText}</p>
+            <p>Erleben Sie den unberührten Winterwald, Natur und glitzernden Schnee auf einer Schneeschuhtour durch das Winterwonderland rund um Langdorf. Vorkenntnisse sind nicht erforderlich.</p>
             <h2>Winterrodelbahnen</h2>
             <p>Die Winterrodelbahn direkt im Dorf oder am Silberberg bietet Rodelspaß pur.</p>
             <h2>Eishalle Regen</h2>
-            <p>${this.stadiumText}</p>
+            <p>Die Eishalle Regen bietet im Winter für Familien Freizeitspaß für Groß und Klein.</p>
+            <p>Der Öffenltich eislauf ist ein Spaß für die ganze Familie. Egal, ob es draußen regnet oder die Sonne scheint, hier kann man sich jeden Dienstag, Mittwoch und Sonntag so richtig austoben.</p>
             <h2>Nähere Informationen und weitere Freizeitmöglichkeiten:</h2>
             <ul>
                 <li>Hallenbad Aquacur Bad Kötzing</li>
@@ -43,5 +44,3 @@ export class WinterActivities extends LitElement {
         `;
     }
 }
-
-customElements.define("winter-activities", WinterActivities)

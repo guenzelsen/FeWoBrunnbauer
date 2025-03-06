@@ -1,18 +1,8 @@
 import { css, html, LitElement } from "lit";
+import {customElement} from "lit/decorators.js";
 
+@customElement('apartment-welcome')
 export class ApartmentWelcome extends LitElement {
-
-    private welcomeText: string = "Unser neu gestaltetes Ferinehaus leigt direkt im Ortskern von Langdorf in ruhiger und dennoch zentraler Lage.\n" +
-        "Aufgeteilt in zwei separate geschmackvolle Ferienwohnungen mit jeweils 110qm Wohnfläche.\n" +
-        "Jede Wohneinheit bietet reichlich Platz für 2-5 Personen.\n" +
-        "Diese sind aufgeteilt in eine modern ausgestattete offene Küche, Wohnzimmer, drei geräumige Schlafzimmer, Badezimmer mit Badewanne und Regendusche, große Balkone, Grillplatz im Garten.\n\n" +
-        "Langdorf und seine Umgebung bietet sowohl für Aktivurlauber als auch für Erholungssuchende eine Vielzahl von Möglichkeiten - egal zu welcher Jahreszeit. Genießen Sie die traumhafte Landschaft " +
-        "des Bayerischen Waldes am Fuße des großen Arbers, erkunden Sie den Nationpark Bayerischer Wald oder besuchen Sie historische Städte Passau oder des UNESCO Weltkulturerbe Regensburg.\n\n" +
-        "Verbringen Sie schöne Tage in familiäre Atmosphäre, aber auch Zeit für sich und die Natur."
-
-    private noteText: string = "Wir, die Gastgeber Karin und Michael Brunnbauer, freuen uns darauf Sie begrüßen zu dürfen.\n\n" +
-        "Rufen Sie einfach an oder kontaktieren Sie uns über E-Mail."
-
     static styles = css`
         :host {
             display: block;
@@ -50,8 +40,14 @@ export class ApartmentWelcome extends LitElement {
             <div class="welcome">
                 <div class="welcome-left">
                     <h2>Wilkommen</h2>
-                    <p>${this.welcomeText}</p>
-                    <p>${this.noteText}</p>
+                    <p>Unser neu gestaltetes Ferienhaus liegt direkt im Ortskern von Langdorf in ruhiger und dennoch zentraler Lage.</p>
+                    <p>Aufgeteilt in zwei separate geschmackvolle Ferienwohnungen mit jeweils 110qm Wohnfläche.</p>
+                    <p>Jede Wohneinheit bietet reichlich Platz für 2-5 Personen.</p>
+                    <p>Diese sind aufgeteilt in eine modern ausgestattete offene Küche, Wohnzimmer, drei geräumige Schlafzimmer, Badezimmer mit Badewanne und Regendusche, große Balkone, Grillplatz im Garten.</p>
+                    <p>Langdorf und seine Umgebung bietet sowohl für Aktivurlauber als auch für Erholungssuchende eine Vielzahl von Möglichkeiten - egal zu welcher Jahreszeit. Genießen Sie die traumhafte Landschaft des Bayerischen Waldes am Fuße des großen Arbers, erkunden Sie den Nationpark Bayerischer Wald oder besuchen Sie historische Städte Passau oder des UNESCO Weltkulturerbe Regensburg.</p>
+                    <p>Verbringen Sie schöne Tage in familiäre Atmosphäre, aber auch Zeit für sich und die Natur.</p>
+                    <p>Wir, die Gastgeber Karin und Michael Brunnbauer, freuen uns darauf Sie begrüßen zu dürfen.</p>
+                    <p>Rufen Sie einfach an oder kontaktieren Sie uns über E-Mail.</p>
                 </div>
                 <div class="welcome-right">
                     <img src="/images/haus.png" alt="Welcome Image">
@@ -64,5 +60,3 @@ export class ApartmentWelcome extends LitElement {
         `;
     }
 }
-
-customElements.define('apartment-welcome', ApartmentWelcome);

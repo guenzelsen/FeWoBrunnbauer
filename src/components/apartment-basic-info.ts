@@ -1,29 +1,25 @@
 import {html, LitElement} from "lit";
+import {customElement} from "lit/decorators.js";
 
+@customElement('apartment-basic-info')
 export class ApartmentBasicInfo extends LitElement {
-    private basicInfo: string = "Zum Reinigen Ihrer Kleidung steht eine Waschmaschine und Wäscheständer gegen kleinen Aufpreis zur Verfügung.\n\n" +
-        "NICHTRAUCHERWOHNUNG: (Auf dem Balkon oder im Freien kann selbstverständlich graucht werden)\n" +
-        "Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Breich des Ferienhauses und in der Ferienwohnung einschließlich der Ausßenbereiche verboten.\n" +
-        "WLAN und Parkplätze stehen Ihnen kostenfrei zur Verfügung."
-
-    private travelInfo: string = "Anreise ist von 14:00Uhr bis 21:00Uhr möglich.\n" +
-        "Abreise ist von 07:00Uhr bis spätestens 10:00Uhr möglich.\n" +
-        "Andere An- und Abreisezeiten sind nach Rücksprache möglich.\n" +
-        "Die Schlüsselübergabe erfolgt persönlich vor Ort."
-
-    private priceInfo: string = "Folgende Nebenkosten: Strom, Wasser, Bettwäsche, Handtücher, Heizung, gesetzliche Mehrwertsteuer\n" +
-        "Kostenlosen WLAN-Zugang\n" +
-        "Kinderhochstuhl, Kinderreisebett, Tritt fürs Waschbecken auf Anfrage\n" +
-        "Ski-/Radunterstellraum\n" +
-        "Schlittenverleih";
-
     render() {
         return html`
-            <p>${this.basicInfo}</p>
+            <p>Zum Reinigen Ihrer Kleidung steht eine Waschmaschine und Wäscheständer gegen kleinen Aufpreis zur Verfügung.</p>
+            <p>NICHTRAUCHERWOHNUNG: (Auf dem Balkon oder im Freien kann selbstverständlich graucht werden)</p>
+            <p>Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Breich des Ferienhauses und in der Ferienwohnung einschließlich der Ausßenbereiche verboten.</p>
+            <p>WLAN und Parkplätze stehen Ihnen kostenfrei zur Verfügung.</p>
             <h3>An- und Abreise:</h3>
-            <p>${this.travelInfo}</p>
+            <p>Anreise ist von 14:00Uhr bis 21:00Uhr möglich.</p>
+            <p>Abreise ist von 07:00Uhr bis spätestens 10:00Uhr möglich.</p>
+            <p>Andere An- und Abreisezeiten sind nach Rücksprache möglich.</p>
+            <p>Die Schlüsselübergabe erfolgt persönlich vor Ort.</p>
             <h3>Unsere Preise beinhalten:</h3>
-            <p>${this.priceInfo}</p>
+            <p>Folgende Nebenkosten: Strom, Wasser, Bettwäsche, Handtücher, Heizung, gesetzliche Mehrwertsteuer</p>
+            <p>Kostenlosen WLAN-Zugang</p>
+            <p>Kinderhochstuhl, Kinderreisebett, Tritt fürs Waschbecken auf Anfrage</p>
+            <p>Ski-/Radunterstellraum</p>
+            <p>Schlittenverleih</p>
             <h3>Endreinigung</h3>
             <p>Gebühr wird separat erhoben</p>
             <h3>Aufenthaltsgebühr</h3>
@@ -35,5 +31,3 @@ export class ApartmentBasicInfo extends LitElement {
         `;
     }
 }
-
-customElements.define('apartment-basic-info', ApartmentBasicInfo);

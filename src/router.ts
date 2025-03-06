@@ -10,7 +10,7 @@ export const initRouter = () => {
         {path: '/aktivitaeten/sommer', component: 'summer-activities'},
         {path: '/aktivitaeten/winter', component: 'winter-activities'},
         {path: '/hausordnung', component: 'house-rules'},
-        {path: '/preise', component: 'price'},
+        {path: '/preise', component: 'price-component'},
         {path: '/kontakt', component: 'impressum-component'}
     ]);
 };
