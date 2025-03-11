@@ -23,7 +23,7 @@ export class PriceCard extends LitElement {
             display: block;
             line-height: 1.6;
             color: #333;
-            background-color: grey;
+            background-color: lightgray;
             padding: 8px;
             border-radius: 8px;
             margin: 2rem auto;

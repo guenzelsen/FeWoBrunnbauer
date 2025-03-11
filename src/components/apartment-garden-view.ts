@@ -13,6 +13,17 @@ export class ApartmentGardenView extends LitElement {
             border-radius: 8px;
             margin: 2rem auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+            .pictures {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                gap: 16px;
+
+                img {
+                    width: 150px;
+                    height: 150px;
+                }
+            }
         }
     `;
 
@@ -29,6 +40,25 @@ export class ApartmentGardenView extends LitElement {
             <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
             <p>Elektrische Rolläden in der gesamten Wohnung.</p>
             <apartment-basic-info></apartment-basic-info>
+            <div class="pictures">
+                <img src="/images/rachel/0.jpg" alt="">
+                <img src="/images/rachel/1.jpg" alt="">
+                <img src="/images/rachel/2.jpg" alt="">
+                <img src="/images/rachel/3.jpg" alt="">
+                <img src="/images/rachel/4.jpg" alt="">
+                <img src="/images/rachel/5.jpg" alt="">
+                <img src="/images/rachel/6.jpg" alt="">
+                <img src="/images/rachel/7.jpg" alt="">
+                <img src="/images/rachel/8.jpg" alt="">
+                <img src="/images/rachel/9.jpg" alt="">
+                <img src="/images/rachel/10.jpg" alt="">
+                <img src="/images/rachel/11.jpg" alt="">
+                <img src="/images/rachel/12.jpg" alt="">
+                <img src="/images/rachel/13.jpg" alt="">
+                <img src="/images/rachel/14.jpg" alt="">
+                <img src="/images/rachel/15.jpg" alt="">
+                <img src="/images/rachel/16.jpg" alt="">
+            </div>
         `;
     }
 }

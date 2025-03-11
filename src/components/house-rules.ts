@@ -10,7 +10,7 @@ export class HouseRules extends LitElement {
         line-height: 1.6;
         color: #333;
         background-color: #f4f4f9;
-        padding: 2rem 18rem;
+        padding: 2rem;
         border-radius: 8px;
         margin: 2rem auto;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
