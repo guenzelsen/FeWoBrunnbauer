@@ -4,7 +4,7 @@ export const initRouter = () => {
     const outlet = document.getElementById('app');
     const router = new Router(outlet);
     router.setRoutes([
-        {path: '/', component: 'apartment-welcome'},
+        {path: '/', component: 'apartment-home'},
         {path: '/wohnung/gartenblick', component: 'apartment-garden-view'},
         {path: '/wohnung/rachelblick', component: 'apartment-rachel-view'},
         {path: '/aktivitaeten/sommer', component: 'summer-activities'},

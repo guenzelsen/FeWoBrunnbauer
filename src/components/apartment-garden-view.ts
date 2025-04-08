@@ -1,17 +1,20 @@
 import {css, html, LitElement} from "lit";
-import {customElement} from "lit/decorators.js";
+import {customElement, state} from "lit/decorators.js";
+
 
 @customElement('apartment-garden-view')
 export class ApartmentGardenView extends LitElement {
+    @state() private selectedImage: string | null = null;
+
     static styles = css`
         :host {
+            margin: 0 50rem;
             display: block;
             line-height: 1.6;
             color: #333;
             background-color: #f4f4f9;
             padding: 2rem;
             border-radius: 8px;
-            margin: 2rem auto;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
             .pictures {
@@ -23,9 +26,81 @@ export class ApartmentGardenView extends LitElement {
                     width: 150px;
                     height: 150px;
                 }
+
+                img:hover {
+                    transform: scale(1.1);
+                }
+            }
+            /* Modal styling */
+            .modal {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                opacity: 1;
+                transition: opacity 0.3s ease-in-out;
+            }
+
+            .modal .image-container {
+                display: flex;
+                position: relative;
+                justify-content: center;
+                align-items: center;
+                max-width: 60%;
+                max-height: 80%;
+            }
+
+            .modal img {
+                display: block;
+                max-width: 50%;
+                max-height: 50%;
+                width: 50%;
+                height: 50%;
+                border-radius: 10px;
+                animation: fadeIn 0.3s ease-in-out;
+            }
+
+            .modal .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 400px;
+                background: white;
+                color: black;
+                font-size: 24px;
+                border: none;
+                cursor: pointer;
+                padding: 10px;
+                border-radius: 50%;
+                transition: background 0.2s;
+            }
+
+            .modal .close-btn:hover {
+                background: red;
+                color: white;
+            }
+
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
         }
     `;
+
+    /** Opens the modal with the selected image */
+    private openImage(src: string) {
+        this.selectedImage = src;
+    }
+
+    /** Closes the modal */
+    private closeImage() {
+        this.selectedImage = null;
+    }
 
     render() {
         return html`
@@ -41,24 +116,20 @@ export class ApartmentGardenView extends LitElement {
             <p>Elektrische Rolläden in der gesamten Wohnung.</p>
             <apartment-basic-info></apartment-basic-info>
             <div class="pictures">
-                <img src="/images/rachel/0.jpg" alt="">
-                <img src="/images/rachel/1.jpg" alt="">
-                <img src="/images/rachel/2.jpg" alt="">
-                <img src="/images/rachel/3.jpg" alt="">
-                <img src="/images/rachel/4.jpg" alt="">
-                <img src="/images/rachel/5.jpg" alt="">
-                <img src="/images/rachel/6.jpg" alt="">
-                <img src="/images/rachel/7.jpg" alt="">
-                <img src="/images/rachel/8.jpg" alt="">
-                <img src="/images/rachel/9.jpg" alt="">
-                <img src="/images/rachel/10.jpg" alt="">
-                <img src="/images/rachel/11.jpg" alt="">
-                <img src="/images/rachel/12.jpg" alt="">
-                <img src="/images/rachel/13.jpg" alt="">
-                <img src="/images/rachel/14.jpg" alt="">
-                <img src="/images/rachel/15.jpg" alt="">
-                <img src="/images/rachel/16.jpg" alt="">
+                ${Array.from({ length: 16 }, (_, i) => html`
+                    <img src="/images/rachel/${i}.jpg" alt="" @click="${() => this.openImage(`/images/rachel/${i}.jpg`)}">
+                `)}
             </div>
+            ${this.selectedImage
+                    ? html`
+                        <div class="modal" @click="${this.closeImage}">
+                            <div class="image-container">
+                                <button class="close-btn" @click="${this.closeImage}">X</button>
+                                <img src="${this.selectedImage}" alt="">
+                            </div>
+                        </div>
+                    `
+                    : null}
         `;
     }
 }

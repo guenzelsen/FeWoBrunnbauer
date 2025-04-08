@@ -1,17 +1,18 @@
 import { css, html, LitElement } from "lit";
 import {customElement} from "lit/decorators.js";
 
-@customElement('apartment-welcome')
-export class ApartmentWelcome extends LitElement {
+@customElement('apartment-home-content')
+export class ApartmentHomeContent extends LitElement {
     static styles = css`
         :host {
             display: block;
-            background-color: #fff;
             padding: 16px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             margin: 0 auto;
+            background: rgba(255, 255, 255, 0.8);
         }
+
         .welcome {
             display: flex;
             align-items: center;
