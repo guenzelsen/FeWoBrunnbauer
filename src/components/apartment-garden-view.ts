@@ -8,15 +8,6 @@ export class ApartmentGardenView extends LitElement {
 
     static styles = css`
         :host {
-            margin: 0 50rem;
-            display: block;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f9;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-
             .pictures {
                 display: grid;
                 grid-template-columns: repeat(5, 1fr);
@@ -89,6 +80,21 @@ export class ApartmentGardenView extends LitElement {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
+
+            home-slider {
+                z-index: -1;
+            }
+            
+            .content {
+                margin: -150px 25% 0;
+                display: block;
+                line-height: 1.6;
+                color: #333;
+                background: rgba(255, 255, 255, 0.8);
+                padding: 2rem;
+                border-radius: 8px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
         }
     `;
 
@@ -104,27 +110,29 @@ export class ApartmentGardenView extends LitElement {
 
     render() {
         return html`
-            <h1>Ferienwohnung Gartenblick</h1>
-            <p>In unserer neu gestalteten Ferienwohunung im OG ist für 2-5 Personen reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf 110qm Wohnfläche vor.</p>
-            <p>Die Wohnung wurde im Sommer 2024 nach umfangreicher Modernisierung und Renovierung fertiggestellt.</p>
-            <p>Das gemütliche Wohnzimmer mit großer Courch und Flachbildschirm Sat-TV lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen, Mikrowelle, Wasserkocher, Kaffevollautomat und Toaster lässt keine Wünsche offen.</p>
-            <p>Die Ferienwohnung verfügt über 3 separate moderne Schlafzimmer. 2 Zimmer mit Doppelbett 180x200m (Boxspringbett/Französisches Bett), 1 Zimmer mit Einzelbett 140x200m.</p>
-            <p>Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause, Badewanne, großenm Spiegel, Hand- und Badetücher runden das Gesamtbild ab.</p>
-            <p>Zudem steht ein gräumiger Südbalkon zur Verfügung.</p>
-            <p>Im Sommer können Sie entspannte Grillabende in unserem Garten mit Sitzmöglichkeiten verbringen.</p>
-            <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
-            <p>Elektrische Rolläden in der gesamten Wohnung.</p>
-            <apartment-basic-info></apartment-basic-info>
-            <div class="pictures">
-                ${Array.from({ length: 16 }, (_, i) => html`
+            <home-slider></home-slider>
+            <div class="content">
+                <h1>Ferienwohnung Gartenblick</h1>
+                <p>In unserer neu gestalteten Ferienwohunung im OG ist für 2-5 Personen reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf 110qm Wohnfläche vor.</p>
+                <p>Die Wohnung wurde im Sommer 2024 nach umfangreicher Modernisierung und Renovierung fertiggestellt.</p>
+                <p>Das gemütliche Wohnzimmer mit großer Courch und Flachbildschirm Sat-TV lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen, Mikrowelle, Wasserkocher, Kaffevollautomat und Toaster lässt keine Wünsche offen.</p>
+                <p>Die Ferienwohnung verfügt über 3 separate moderne Schlafzimmer. 2 Zimmer mit Doppelbett 180x200m (Boxspringbett/Französisches Bett), 1 Zimmer mit Einzelbett 140x200m.</p>
+                <p>Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause, Badewanne, großenm Spiegel, Hand- und Badetücher runden das Gesamtbild ab.</p>
+                <p>Zudem steht ein gräumiger Südbalkon zur Verfügung.</p>
+                <p>Im Sommer können Sie entspannte Grillabende in unserem Garten mit Sitzmöglichkeiten verbringen.</p>
+                <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
+                <p>Elektrische Rolläden in der gesamten Wohnung.</p>
+                <apartment-basic-info></apartment-basic-info>
+                <div class="pictures">
+                    ${Array.from({ length: 16 }, (_, i) => html`
                     <img src="/images/rachel/${i}.jpg" alt="" @click="${() => this.openImage(`/images/rachel/${i}.jpg`)}">
                 `)}
+                </div>
             </div>
             ${this.selectedImage
                     ? html`
                         <div class="modal" @click="${this.closeImage}">
                             <div class="image-container">
-                                <button class="close-btn" @click="${this.closeImage}">X</button>
                                 <img src="${this.selectedImage}" alt="">
                             </div>
                         </div>

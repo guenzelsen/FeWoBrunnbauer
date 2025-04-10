@@ -13,7 +13,7 @@ export class ApartmentHome extends LitElement {
             }
 
             apartment-home-content {
-                margin: -150px 50rem 0;
+                margin: -150px 25% 0;
             }
         }
     `

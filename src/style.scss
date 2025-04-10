@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: gray;
+  background-color: #dedede;
 }
 
 nav {
@@ -10,6 +10,21 @@ nav {
   flex-direction: row;
   align-items: center;
   margin-bottom: 30px;
+
+  div {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 0;
+    width: 100%;
+    text-align: center;
+
+    &:hover {
+      button {
+        color: gray;
+      }
+    }
+  }
 
   a {
     color: white;
