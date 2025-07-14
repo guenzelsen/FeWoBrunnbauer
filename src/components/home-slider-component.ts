@@ -64,7 +64,7 @@ export class HomeSlider extends LitElement{
         if (img) {
             img.classList.add("fade-out"); // Fade out
             setTimeout(() => {
-                this.currentIndex = (this.currentIndex + index - 1 + 5) % 5 + 1; // Update image index
+                this.currentIndex = (this.currentIndex + index - 1 + 6) % 6 + 1; // Update image index
                 img.classList.remove("fade-out"); // Fade in after update
             }, 250); // Wait for fade-out animation
         }
