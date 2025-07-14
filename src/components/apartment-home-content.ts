@@ -22,13 +22,17 @@ export class ApartmentHomeContent extends LitElement {
         }
 
         .pictures {
+            align-content: center;
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
+            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 
             img {
-                width: 150px;
-                height: 150px;
+                width: 100%;
+                height: auto;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                display: block;
             }
 
             img:hover {
@@ -130,7 +134,7 @@ export class ApartmentHomeContent extends LitElement {
                 </p>
             </div>
             <div class="pictures">
-                ${Array.from({ length: 5 }, (_, i) => html`
+                ${Array.from({ length: 4 }, (_, i) => html`
                     <img src="/images/start/0${i}.jpg" alt="" @click="${() => this.openImage(`/images/start/0${i}.jpg`)}">
                 `)}
             </div>

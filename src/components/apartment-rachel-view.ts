@@ -9,12 +9,15 @@ export class ApartmentRachelView extends LitElement {
         :host {
             .pictures {
                 display: grid;
-                grid-template-columns: repeat(4, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
                 gap: 16px;
 
                 img {
-                    width: 150px;
-                    height: 150px;
+                    width: 100%;
+                    height: auto;
+                    aspect-ratio: 1/1;
+                    object-fit: cover;
+                    display: block;
                 }
 
                 img:hover {
@@ -123,7 +126,7 @@ export class ApartmentRachelView extends LitElement {
                 <p>Elektrische Rolläden in der gesamten Wohnung.</p>
                 <apartment-basic-info></apartment-basic-info>
                 <div class="pictures">
-                    ${Array.from({ length: 17 }, (_, i) => html`
+                    ${Array.from({ length: 16 }, (_, i) => html`
                     <img src="/images/rachel/${i}.jpg" alt="" @click="${() => this.openImage(`/images/rachel/${i}.jpg`)}">
                 `)}
                 </div>
