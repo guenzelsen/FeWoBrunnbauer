@@ -13,10 +13,11 @@ export class PriceComponent extends LitElement {
             border-radius: 8px;
             margin: 0 25%;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
             
             .cards {
                 display: grid;
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(1, 1fr);
                 gap: 16px;
             }
         }
@@ -26,13 +27,13 @@ export class PriceComponent extends LitElement {
         return html`
             <h1>Preise</h1>
             <div class="cards">
-                <price-card header="Winter 2025" range="(06.01.25-31.03.25)" twoPersons="95Euro" threeToFourPersons="115Euro" fivePersons="125Euro"></price-card>
-                <price-card header="Sommer 2025" range="(01.04.25-30.09.25)" twoPersons="85Euro" threeToFourPersons="105Euro" fivePersons="115Euro"></price-card>
-                <price-card header="Weihnachten/Neujahr 25/26" range="(22.12.25-04.01.26)" twoPersons="100Euro" threeToFourPersons="120Euro" fivePersons="130Euro"></price-card>
-                <price-card header="Winter 2026" range="(05.01.26-31.03.26)" twoPersons="95Euro" threeToFourPersons="115Euro" fivePersons="125Euro"></price-card>
+                <price-card header="Sommer" range="(01.04.-30.09.)" twoPersons="85 Euro" threeToFourPersons="105 Euro" fivePersons="115 Euro"></price-card>
+                <price-card header="Winter" range="(07.01.-31.03.)(1.10.-21.12.)" twoPersons="95 Euro" threeToFourPersons="115 Euro" fivePersons="125 Euro"></price-card>
+                <price-card header="Weihnachten/Neujahr" range="(22.12.-06.01.)" twoPersons="100 Euro" threeToFourPersons="120 Euro" fivePersons="130 Euro"></price-card>
             </div>
-            <p>Kinder unter 3 Jahren frei, 3-7Jahre 10Euro pro Tag,</p>
-            <p>Endreinigung 60Euro einmalig</p>
+            <p>Kinder unter 3 Jahren frei, 3-7Jahre 10 Euro pro Tag,</p>
+            <p>Endreinigung 60 Euro einmalig</p>
+            <p>Kurzzeitzuschlag bis 3 Nächte 20 Euro einmalig</p>
         `;
     }
 }

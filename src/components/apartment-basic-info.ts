@@ -7,7 +7,7 @@ export class ApartmentBasicInfo extends LitElement {
         return html`
             <p>Zum Reinigen Ihrer Kleidung steht eine Waschmaschine und Wäscheständer gegen kleinen Aufpreis zur Verfügung.</p>
             <p>NICHTRAUCHERWOHNUNG: (Auf dem Balkon oder im Freien kann selbstverständlich graucht werden)</p>
-            <p>Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Breich des Ferienhauses und in der Ferienwohnung einschließlich der Ausßenbereiche verboten.</p>
+            <p>Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Breich des Ferienhauses und in der Ferienwohnung einschließlich der Außenbereiche verboten.</p>
             <p>WLAN und Parkplätze stehen Ihnen kostenfrei zur Verfügung.</p>
             <h3>An- und Abreise:</h3>
             <p>Anreise ist von 14:00Uhr bis 21:00Uhr möglich.</p>
@@ -27,7 +27,8 @@ export class ApartmentBasicInfo extends LitElement {
             <h3>Haustiere</h3>
             <p>Bitte haben Sie Verständnis, dass wir leider keine Haustiere aufnehmen können</p>
             <h3>Storno</h3>
-            <p>Storno klingt unangenehm und ist es auch - für Sie wie für uns. Bitte schließen Sie bei Bedarf eine Reiserücktrittsversicherung ab</p>
+            <p>Storno klingt unangenehm und ist es auch - für Sie wie für uns.</p>
+            <p>Bitte schließen Sie bei Bedarf eine Reiserücktrittsversicherung ab</p>
         `;
     }
 }

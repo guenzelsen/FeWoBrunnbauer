@@ -10,7 +10,7 @@ export class ApartmentGardenView extends LitElement {
         :host {
             .pictures {
                 display: grid;
-                grid-template-columns: repeat(5, 1fr);
+                grid-template-columns: repeat(4, 1fr);
                 gap: 16px;
 
                 img {
@@ -117,7 +117,7 @@ export class ApartmentGardenView extends LitElement {
                 <p>Die Wohnung wurde im Sommer 2024 nach umfangreicher Modernisierung und Renovierung fertiggestellt.</p>
                 <p>Das gemütliche Wohnzimmer mit großer Courch und Flachbildschirm Sat-TV lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen, Mikrowelle, Wasserkocher, Kaffevollautomat und Toaster lässt keine Wünsche offen.</p>
                 <p>Die Ferienwohnung verfügt über 3 separate moderne Schlafzimmer. 2 Zimmer mit Doppelbett 180x200m (Boxspringbett/Französisches Bett), 1 Zimmer mit Einzelbett 140x200m.</p>
-                <p>Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause, Badewanne, großenm Spiegel, Hand- und Badetücher runden das Gesamtbild ab.</p>
+                <p>Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause, Badewanne, großen Spiegel, Hand- und Badetücher runden das Gesamtbild ab.</p>
                 <p>Zudem steht ein gräumiger Südbalkon zur Verfügung.</p>
                 <p>Im Sommer können Sie entspannte Grillabende in unserem Garten mit Sitzmöglichkeiten verbringen.</p>
                 <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
@@ -125,7 +125,7 @@ export class ApartmentGardenView extends LitElement {
                 <apartment-basic-info></apartment-basic-info>
                 <div class="pictures">
                     ${Array.from({ length: 16 }, (_, i) => html`
-                    <img src="/images/rachel/${i}.jpg" alt="" @click="${() => this.openImage(`/images/rachel/${i}.jpg`)}">
+                    <img src="/images/garten/${i}.jpg" alt="" @click="${() => this.openImage(`/images/garten/${i}.jpg`)}">
                 `)}
                 </div>
             </div>
