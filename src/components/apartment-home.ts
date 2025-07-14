@@ -8,10 +8,6 @@ export class ApartmentHome extends LitElement {
             display: block;
             align-items: center;
 
-            home-slider {
-                z-index: -1;
-            }
-
             apartment-home-content {
                 margin: -150px 25% 0;
             }
@@ -20,7 +16,7 @@ export class ApartmentHome extends LitElement {
 
     protected render() {
         return html`
-            <home-slider></home-slider>
+            <slider-component></slider-component>
             <apartment-home-content></apartment-home-content>
         `;
     }

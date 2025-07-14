@@ -25,6 +25,7 @@ export class ApartmentGardenView extends LitElement {
                     transform: scale(1.1);
                 }
             }
+            
             /* Modal styling */
             .modal {
                 position: fixed;
@@ -83,10 +84,6 @@ export class ApartmentGardenView extends LitElement {
                 from { opacity: 0; }
                 to { opacity: 1; }
             }
-
-            home-slider {
-                z-index: -1;
-            }
             
             .content {
                 margin: -150px 25% 0;
@@ -97,6 +94,7 @@ export class ApartmentGardenView extends LitElement {
                 padding: 2rem;
                 border-radius: 8px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 5;
             }
         }
     `;
@@ -113,7 +111,7 @@ export class ApartmentGardenView extends LitElement {
 
     render() {
         return html`
-            <home-slider></home-slider>
+            <slider-component></slider-component>
             <div class="content">
                 <h1>Ferienwohnung Gartenblick</h1>
                 <p>In unserer neu gestalteten Ferienwohunung im OG ist für 2-5 Personen reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf 110qm Wohnfläche vor.</p>

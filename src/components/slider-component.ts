@@ -1,11 +1,14 @@
 import {css, html, LitElement} from "lit";
-import {customElement, state} from "lit/decorators.js";
+import {customElement, property, state} from "lit/decorators.js";
 
-@customElement('home-slider')
-export class HomeSlider extends LitElement{
+@customElement('slider-component')
+export class SliderComponent extends LitElement{
 
     @state()
     private currentIndex = 5;
+
+    @property({ type: String })
+    private location = "/images/start/"
 
     static styles = css`
         :host {
@@ -74,7 +77,7 @@ export class HomeSlider extends LitElement{
         return html`
             <div class="slider-container">
                 <button @click="${() => this.shift(-1)}"> < </button>
-                <img src="/images/start/${this.currentIndex}.jpg" alt="">
+                <img src="${this.location}${this.currentIndex}.jpg" alt="">
                 <button @click="${() => this.shift(1)}"> > </button>
             </div>
         `

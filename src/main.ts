@@ -10,7 +10,7 @@ import './components/house-rules'
 import './components/price-component'
 import './components/price-card'
 import './components/impressum'
-import './components/home-slider-component'
+import './components/slider-component'
 
 import { initRouter } from './router';
 

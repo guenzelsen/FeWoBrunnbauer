@@ -84,10 +84,6 @@ export class ApartmentRachelView extends LitElement {
                 to { opacity: 1; }
             }
 
-            home-slider {
-                z-index: -1;
-            }
-
             .content {
                 margin: -150px 25% 0;
                 display: block;
@@ -113,7 +109,7 @@ export class ApartmentRachelView extends LitElement {
 
     render() {
         return html`
-            <home-slider></home-slider>
+            <slider-component></slider-component>
             <div class="content">
                 <h1>Ferienwohnung Rachelblick</h1>
                 <p>In unserer neu gestalteten Ferienwohunung im EG ist für 2-5 Personen reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf 110qm Wohnfläche vor.</p>
