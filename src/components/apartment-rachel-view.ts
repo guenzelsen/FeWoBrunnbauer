@@ -3,7 +3,9 @@ import {customElement, state} from "lit/decorators.js";
 
 @customElement('apartment-rachel-view')
 export class ApartmentRachelView extends LitElement {
-    @state() private selectedImage: string | null = null;
+    @state() private selectedImage: number = 1;
+
+    @state() private currentIndex: number  = 1
 
     static styles = css`
         :host {
@@ -20,7 +22,7 @@ export class ApartmentRachelView extends LitElement {
                     display: block;
                 }
 
-                img:hover {
+                img:hover, img.active {
                     transform: scale(1.1);
                 }
             }
@@ -94,18 +96,14 @@ export class ApartmentRachelView extends LitElement {
                 border-radius: 8px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             }
+
+            .slider {
+                padding-bottom: 2rem;
+                display: block;
+            }
         }
     `;
 
-    /** Opens the modal with the selected image */
-    private openImage(src: string) {
-        this.selectedImage = src;
-    }
-
-    /** Closes the modal */
-    private closeImage() {
-        this.selectedImage = null;
-    }
 
     render() {
         return html`
@@ -121,22 +119,25 @@ export class ApartmentRachelView extends LitElement {
                 <p>Im Sommer können Sie entspannte Grillabende in unserem Garten mit Sitzmöglichkeiten verbringen. Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
                 <p>Elektrische Rolläden in der gesamten Wohnung.</p>
                 <apartment-basic-info></apartment-basic-info>
+                <div class="slider">
+                    <slider-component
+                            sliderZIndex="5"
+                            location="/images/rachel/"
+                            imageHeight="750px"
+                            updateIndex="${this.selectedImage}"
+                            numberOfPictures="16"
+                            @index-changed="${(e: CustomEvent) => this.currentIndex = e.detail.index}"
+                    ></slider-component>
+                </div>
                 <div class="pictures">
                     ${Array.from({ length: 16 }, (_, i) => html`
-                    <img src="/images/rachel/${i}.jpg" alt="" @click="${() => this.openImage(`/images/rachel/${i}.jpg`)}">
+                        <img class="${this.currentIndex === i + 1 ? 'active' : ''}" src="/images/rachel/${i+1}.jpg" alt="" @click="${() => {
+                            this.selectedImage = i + 1;
+                            this.currentIndex = i + 1;
+                        }}">
                 `)}
                 </div>
             </div>
-
-            ${this.selectedImage
-                    ? html`
-                        <div class="modal" @click="${this.closeImage}">
-                            <div class="image-container">
-                                <img src="${this.selectedImage}" alt="">
-                            </div>
-                        </div>
-                    `
-                    : null}
         `;
     }
 }

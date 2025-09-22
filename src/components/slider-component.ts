@@ -4,11 +4,28 @@ import {customElement, property, state} from "lit/decorators.js";
 @customElement('slider-component')
 export class SliderComponent extends LitElement{
 
-    @state()
-    private currentIndex = 5;
+    @property({ type: Number})
+    private updateIndex = 5;
 
     @property({ type: String })
     private location = "/images/start/"
+
+    @property({ type: Number})
+    private sliderZIndex = -1;
+
+    @property({ type: String })
+    private imageHeight = "60rem"
+
+    @property({ type: Number})
+    private numberOfPictures = 6
+
+    @state()
+    private fading = false;
+
+    @state()
+    private currentIndex = 5
+
+    private pendingIndex: number | null = null;
 
     static styles = css`
         :host {
@@ -28,11 +45,9 @@ export class SliderComponent extends LitElement{
             
             img {
                 width: 100%;
-                max-height: 60rem;
                 display: block;
-                z-index: -1;
                 opacity: 1;
-                transition: opacity 0.5s ease-in-out;
+                transition: opacity 0.2s ease-in-out;
             }
             
             button {
@@ -62,14 +77,34 @@ export class SliderComponent extends LitElement{
         }
     `;
 
-    public shift(index: number) {
-        const img = this.shadowRoot?.querySelector("img");
-        if (img) {
-            img.classList.add("fade-out"); // Fade out
-            setTimeout(() => {
-                this.currentIndex = (this.currentIndex + index - 1 + 6) % 6 + 1; // Update image index
-                img.classList.remove("fade-out"); // Fade in after update
-            }, 250); // Wait for fade-out animation
+    private changeImage(newIndex: number) {
+        if (this.fading) return; // prevent overlapping animations
+        this.fading = true;
+        this.pendingIndex = newIndex;
+
+        // wait for fade-out to finish, then swap and fade back in
+        setTimeout(() => {
+            this.currentIndex = this.pendingIndex!;
+            this.pendingIndex = null;
+
+            this.fading = false;
+        }, 200); // match CSS transition
+    }
+
+    public shift(step: number) {
+        const newIndex = (this.currentIndex + step - 1 + this.numberOfPictures) % this.numberOfPictures + 1;
+        this.dispatchEvent(new CustomEvent('index-changed', {
+            detail: { index: newIndex },
+            bubbles: true, // so it travels up the DOM tree
+            composed: true // so it crosses shadow DOM boundary
+        }));
+        this.changeImage(newIndex);
+    }
+
+    updated(changedProps: Map<string, unknown>) {
+        if (changedProps.has("updateIndex") && this.pendingIndex === null) {
+            // external change → run fade flow
+            this.changeImage(this.updateIndex);
         }
     }
 
@@ -77,7 +112,7 @@ export class SliderComponent extends LitElement{
         return html`
             <div class="slider-container">
                 <button @click="${() => this.shift(-1)}"> < </button>
-                <img src="${this.location}${this.currentIndex}.jpg" alt="">
+                <img class="${this.fading ? 'fade-out' : ''}" style="z-index: ${this.sliderZIndex}; max-height: ${this.imageHeight}" src="${this.location}${this.currentIndex}.jpg" alt="">
                 <button @click="${() => this.shift(1)}"> > </button>
             </div>
         `
