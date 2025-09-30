@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  webapp:
+    image: nginx:alpine
+    container_name: webapp
+    volumes:
+      - ./dist:/usr/share/nginx/html:ro
+    expose:
+      - "80"
+    restart: unless-stopped
+
+  # Cloudflare Tunnel
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    command: tunnel run
+    environment:
+      - TUNNEL_TOKEN=eyJhIjoiZDI4NzYyNzQ5MTM1ZjUwZDI2MmM1NzFiZmZkNWViMmQiLCJ0IjoiNjAyMGRkZWYtYzRlZi00MTdhLWE5ZjAtMmIxMDkxMTBlZjBiIiwicyI6Ik1XVmtPRGhpTURBdFpUbGtZaTAwTUdFeExXSXpNRFV0WkdFeU16WmhPV1JpTnpGaiJ9
+    restart: unless-stopped
