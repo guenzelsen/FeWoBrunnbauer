@@ -3,7 +3,7 @@
         "target": "ES2020",
         "module": "ES2020",
         "moduleResolution": "Node",
-        "outDir": "dist",
+        "outDir": "docs",
         "sourceMap": true,
         "strict": true,
         "esModuleInterop": true,
