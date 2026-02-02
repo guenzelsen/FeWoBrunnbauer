@@ -19,6 +19,9 @@ export class SliderComponent extends LitElement{
     @property({ type: Number})
     private numberOfPictures = 6
 
+    @property({ type: String })
+    private imageExtension = "avif";
+
     @state()
     private fading = false;
 
@@ -82,13 +85,22 @@ export class SliderComponent extends LitElement{
         this.fading = true;
         this.pendingIndex = newIndex;
 
-        // wait for fade-out to finish, then swap and fade back in
-        setTimeout(() => {
+        const nextImageSrc = `${this.location}${newIndex}.${this.imageExtension}`;
+        const imgLoader = new Image();
+        imgLoader.src = nextImageSrc;
+
+        // Wait for both the fade-out animation (200ms) AND the image to load
+        const animationPromise = new Promise(resolve => setTimeout(resolve, 200));
+        const loadPromise = new Promise(resolve => {
+            imgLoader.onload = resolve;
+            imgLoader.onerror = resolve; // proceed even on error to avoid getting stuck
+        });
+
+        Promise.all([animationPromise, loadPromise]).then(() => {
             this.currentIndex = this.pendingIndex!;
             this.pendingIndex = null;
-
             this.fading = false;
-        }, 200); // match CSS transition
+        });
     }
 
     public shift(step: number) {
@@ -112,7 +124,7 @@ export class SliderComponent extends LitElement{
         return html`
             <div class="slider-container">
                 <button @click="${() => this.shift(-1)}"> < </button>
-                <img class="${this.fading ? 'fade-out' : ''}" style="z-index: ${this.sliderZIndex}; max-height: ${this.imageHeight}" src="${this.location}${this.currentIndex}.jpg" alt="">
+                <img class="${this.fading ? 'fade-out' : ''}" style="z-index: ${this.sliderZIndex}; max-height: ${this.imageHeight}" src="${this.location}${this.currentIndex}.${this.imageExtension}" alt="">
                 <button @click="${() => this.shift(1)}"> > </button>
             </div>
         `

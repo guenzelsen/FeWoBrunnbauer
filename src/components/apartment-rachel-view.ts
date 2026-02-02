@@ -96,6 +96,7 @@ export class ApartmentRachelView extends LitElement {
             imageHeight="750px"
             updateIndex="${this.selectedImage}"
             numberOfPictures="16"
+            imageExtension="avif"
             @index-changed="${(e: CustomEvent) =>
               (this.currentIndex = e.detail.index)}"
           ></slider-component>
