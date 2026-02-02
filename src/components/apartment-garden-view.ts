@@ -28,69 +28,6 @@ export class ApartmentGardenView extends LitElement {
         }
       }
 
-      /* Modal styling */
-      .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
-      }
-
-      .modal .image-container {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        max-width: 60%;
-        max-height: 80%;
-      }
-
-      .modal img {
-        display: block;
-        max-width: 50%;
-        max-height: 50%;
-        width: 50%;
-        height: 50%;
-        border-radius: 10px;
-        animation: fadeIn 0.3s ease-in-out;
-      }
-
-      .modal .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 400px;
-        background: white;
-        color: black;
-        font-size: 24px;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 50%;
-        transition: background 0.2s;
-      }
-
-      .modal .close-btn:hover {
-        background: red;
-        color: white;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
       .content {
         margin: -150px 25% 0;
         display: block;
@@ -116,7 +53,7 @@ export class ApartmentGardenView extends LitElement {
       <div class="content">
         <h1>Ferienwohnung Gartenblick</h1>
         <p>
-          In unserer neu gestalteten Ferienwohunung im OG ist für 2-5 Personen
+          In unserer neu gestalteten Ferienwohnung im OG ist für 2-5 Personen
           reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf
           110qm Wohnfläche vor.
         </p>
@@ -125,10 +62,10 @@ export class ApartmentGardenView extends LitElement {
           Renovierung fertiggestellt.
         </p>
         <p>
-          Das gemütliche Wohnzimmer mit großer Courch und Flachbildschirm Sat-TV
+          Das gemütliche Wohnzimmer mit großer Couch und Flachbildschirm Sat-TV
           lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich
           mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen,
-          Mikrowelle, Wasserkocher, Kaffevollautomat und Toaster lässt keine
+          Mikrowelle, Wasserkocher, Kaffeevollautomat und Toaster lässt keine
           Wünsche offen.
         </p>
         <p>
@@ -141,7 +78,7 @@ export class ApartmentGardenView extends LitElement {
           Badewanne, großen Spiegel, Hand- und Badetücher runden das Gesamtbild
           ab.
         </p>
-        <p>Zudem steht ein gräumiger Südbalkon zur Verfügung.</p>
+        <p>Zudem steht ein geräumiger Südbalkon zur Verfügung.</p>
         <p>
           Im Sommer können Sie entspannte Grillabende in unserem Garten mit
           Sitzmöglichkeiten verbringen.

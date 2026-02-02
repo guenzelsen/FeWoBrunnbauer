@@ -3,12 +3,12 @@ name: Deploy Vite site to GitHub Pages
 on:
   push:
     branches:
-      - main  # oder master, je nach deinem Branch
+      - main
 
 permissions:
-  contents: write      # erlaubt Push auf gh-pages
-  pages: write         # falls du GitHub Pages nutzt
-  id-token: write      # nötig für neuere Deploys
+  contents: write
+  pages: write
+  id-token: write
 
 jobs:
   deploy:

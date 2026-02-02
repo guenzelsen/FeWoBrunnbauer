@@ -6,8 +6,8 @@ export class ApartmentBasicInfo extends LitElement {
     render() {
         return html`
             <p>Zum Reinigen Ihrer Kleidung steht eine Waschmaschine und Wäscheständer gegen kleinen Aufpreis zur Verfügung.</p>
-            <p>NICHTRAUCHERWOHNUNG: (Auf dem Balkon oder im Freien kann selbstverständlich graucht werden)</p>
-            <p>Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Breich des Ferienhauses und in der Ferienwohnung einschließlich der Außenbereiche verboten.</p>
+            <p>NICHTRAUCHERWOHNUNG: (Auf dem Balkon oder im Freien kann selbstverständlich geraucht werden)</p>
+            <p>Der Konsum und die Mitnahme jeglicher Art von Cannabis ist auf dem Bereich des Ferienhauses und in der Ferienwohnung einschließlich der Außenbereiche verboten.</p>
             <p>WLAN und Parkplätze stehen Ihnen kostenfrei zur Verfügung.</p>
             <h3>An- und Abreise:</h3>
             <p>Anreise ist von 14:00Uhr bis 21:00Uhr möglich.</p>

@@ -28,69 +28,6 @@ export class ApartmentRachelView extends LitElement {
         }
       }
 
-      /* Modal styling */
-      .modal {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-        opacity: 1;
-        transition: opacity 0.3s ease-in-out;
-      }
-
-      .modal .image-container {
-        display: flex;
-        position: relative;
-        justify-content: center;
-        align-items: center;
-        max-width: 60%;
-        max-height: 80%;
-      }
-
-      .modal img {
-        display: block;
-        max-width: 50%;
-        max-height: 50%;
-        width: 50%;
-        height: 50%;
-        border-radius: 10px;
-        animation: fadeIn 0.3s ease-in-out;
-      }
-
-      .modal .close-btn {
-        position: absolute;
-        top: 20px;
-        right: 400px;
-        background: white;
-        color: black;
-        font-size: 24px;
-        border: none;
-        cursor: pointer;
-        padding: 10px;
-        border-radius: 50%;
-        transition: background 0.2s;
-      }
-
-      .modal .close-btn:hover {
-        background: red;
-        color: white;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-
       .content {
         margin: -150px 25% 0;
         display: block;
@@ -115,7 +52,7 @@ export class ApartmentRachelView extends LitElement {
       <div class="content">
         <h1>Ferienwohnung Rachelblick</h1>
         <p>
-          In unserer neu gestalteten Ferienwohunung im EG ist für 2-5 Personen
+          In unserer neu gestalteten Ferienwohnung im EG ist für 2-5 Personen
           reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf
           110qm Wohnfläche vor.
         </p>
@@ -124,10 +61,10 @@ export class ApartmentRachelView extends LitElement {
           Renovierung fertiggestellt.
         </p>
         <p>
-          Das gemütliche Wohnzimmer mit großer Courch und Flachbildschirm Sat-TV
+          Das gemütliche Wohnzimmer mit großer Couch und Flachbildschirm Sat-TV
           lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich
           mit Tresen und Barhocker, Geschirrspüler, Kühlschrank, Gefrierschrank,
-          E-Herd, Backofen, Mikrowelle, Wasserkocher, Kaffevollautomat und
+          E-Herd, Backofen, Mikrowelle, Wasserkocher, Kaffeevollautomat und
           Toaster lässt keine Wünsche offen.
         </p>
         <p>
@@ -137,13 +74,13 @@ export class ApartmentRachelView extends LitElement {
         </p>
         <p>
           Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause,
-          Badewanne, großenm Spiegel, Hand- und Badetücher runden das Gesamtbild
+          Badewanne, großen Spiegel, Hand- und Badetücher runden das Gesamtbild
           ab.
         </p>
         <p>
-          Zudem steht ein gräumiger Ostbalkon, der sich über die gesamte
-          Hauslägne erstreckt zur Verfügung. Von dort aus können Sie über eine
-          Treppe ddirekt in den 'Garten gelangen.
+          Zudem steht ein geräumiger Ostbalkon, der sich über die gesamte
+          Hauslänge erstreckt zur Verfügung. Von dort aus können Sie über eine
+          Treppe direkt in den Garten gelangen.
         </p>
         <p>
           Im Sommer können Sie entspannte Grillabende in unserem Garten mit
