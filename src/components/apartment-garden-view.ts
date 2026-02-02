@@ -1,4 +1,4 @@
-import { css, html, LitElement } from "lit";
+import { html, LitElement } from "lit";
 import { customElement, state } from "lit/decorators.js";
 
 @customElement("apartment-garden-view")
@@ -7,112 +7,79 @@ export class ApartmentGardenView extends LitElement {
 
   @state() private currentIndex: number = 1;
 
-  static styles = css`
-    :host {
-      .pictures {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 16px;
-
-        img {
-          width: 100%;
-          height: auto;
-          aspect-ratio: 1/1;
-          object-fit: cover;
-          display: block;
-        }
-
-        img:hover,
-        img.active {
-          transform: scale(1.1);
-        }
-      }
-
-      .content {
-        margin: -150px 25% 0;
-        display: block;
-        line-height: 1.6;
-        color: #333;
-        background: rgba(255, 255, 255, 0.8);
-        padding: 2rem;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 5;
-      }
-
-      .slider {
-        padding-bottom: 2rem;
-        display: block;
-      }
-    }
-  `;
+  // Use createRenderRoot to render into the light DOM so global styles apply
+  createRenderRoot() {
+    return this;
+  }
 
   render() {
     return html`
-      <slider-component></slider-component>
-      <div class="content">
-        <h1>Ferienwohnung Gartenblick</h1>
-        <p>
-          In unserer neu gestalteten Ferienwohnung im OG ist für 2-5 Personen
-          reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf
-          110qm Wohnfläche vor.
-        </p>
-        <p>
-          Die Wohnung wurde im Sommer 2024 nach umfangreicher Modernisierung und
-          Renovierung fertiggestellt.
-        </p>
-        <p>
-          Das gemütliche Wohnzimmer mit großer Couch und Flachbildschirm Sat-TV
-          lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich
-          mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen,
-          Mikrowelle, Wasserkocher, Kaffeevollautomat und Toaster lässt keine
-          Wünsche offen.
-        </p>
-        <p>
-          Die Ferienwohnung verfügt über 3 separate moderne Schlafzimmer. 2
-          Zimmer mit Doppelbett 180x200m (Boxspringbett/Französisches Bett), 1
-          Zimmer mit Einzelbett 140x200m.
-        </p>
-        <p>
-          Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause,
-          Badewanne, großen Spiegel, Hand- und Badetücher runden das Gesamtbild
-          ab.
-        </p>
-        <p>Zudem steht ein geräumiger Südbalkon zur Verfügung.</p>
-        <p>
-          Im Sommer können Sie entspannte Grillabende in unserem Garten mit
-          Sitzmöglichkeiten verbringen.
-        </p>
-        <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
-        <p>Elektrische Rolläden in der gesamten Wohnung.</p>
-        <apartment-basic-info></apartment-basic-info>
-        <div class="slider">
-          <slider-component
-            sliderZIndex="5"
-            location="/images/garten/"
-            imageHeight="750px"
-            updateIndex="${this.selectedImage}"
-            numberOfPictures="17"
-            imageExtension="avif"
-            @index-changed="${(e: CustomEvent) =>
-              (this.currentIndex = e.detail.index)}"
-          ></slider-component>
-        </div>
-        <div class="pictures">
-          ${Array.from(
-            { length: 17 },
-            (_, i) => html`
-              <img
-                class="${this.currentIndex === i + 1 ? "active" : ""}"
-                src="/images/garten/${i + 1}.avif"
-                alt=""
-                @click="${() => {
-                  this.selectedImage = i + 1;
-                  this.currentIndex = i + 1;
-                }}"
-              />
-            `,
-          )}
+      <div class="apartment-view">
+        <slider-component></slider-component>
+        <div class="content">
+          <h1>Ferienwohnung Gartenblick</h1>
+          <p>
+            In unserer neu gestalteten Ferienwohnung im OG ist für 2-5 Personen
+            reichlich Platz vorhanden. Sie finden einen gehobenen Wohnkomfort auf
+            110qm Wohnfläche vor.
+          </p>
+          <p>
+            Die Wohnung wurde im Sommer 2024 nach umfangreicher Modernisierung und
+            Renovierung fertiggestellt.
+          </p>
+          <p>
+            Das gemütliche Wohnzimmer mit großer Couch und Flachbildschirm Sat-TV
+            lädt zum Verweilen ein. Der komplett ausgestattet offene Küchenbereich
+            mit Geschirrspüler, Kühlschrank, Gefrierschrank, E-Herd, Backofen,
+            Mikrowelle, Wasserkocher, Kaffeevollautomat und Toaster lässt keine
+            Wünsche offen.
+          </p>
+          <p>
+            Die Ferienwohnung verfügt über 3 separate moderne Schlafzimmer. 2
+            Zimmer mit Doppelbett 180x200m (Boxspringbett/Französisches Bett), 1
+            Zimmer mit Einzelbett 140x200m.
+          </p>
+          <p>
+            Das geräumige Badezimmer mit ebenerdiger Dusche und Regenbrause,
+            Badewanne, großen Spiegel, Hand- und Badetücher runden das Gesamtbild
+            ab.
+          </p>
+          <p>Zudem steht ein geräumiger Südbalkon zur Verfügung.</p>
+          <p>
+            Im Sommer können Sie entspannte Grillabende in unserem Garten mit
+            Sitzmöglichkeiten verbringen.
+          </p>
+          <p>Gas- und Holzkohlegrill kann dafür bereitgestellt werden.</p>
+          <p>Elektrische Rolläden in der gesamten Wohnung.</p>
+          <apartment-basic-info></apartment-basic-info>
+          <div class="slider">
+            <slider-component
+              sliderZIndex="5"
+              location="/images/garten/"
+              imageHeight="750px"
+              updateIndex="${this.selectedImage}"
+              numberOfPictures="17"
+              imageExtension="avif"
+              @index-changed="${(e: CustomEvent) =>
+                (this.currentIndex = e.detail.index)}"
+            ></slider-component>
+          </div>
+          <div class="pictures">
+            ${Array.from(
+              { length: 17 },
+              (_, i) => html`
+                <img
+                  class="${this.currentIndex === i + 1 ? "active" : ""}"
+                  src="/images/garten/${i + 1}.avif"
+                  alt="Gartenblick Bild ${i + 1}"
+                  @click="${() => {
+                    this.selectedImage = i + 1;
+                    this.currentIndex = i + 1;
+                  }}"
+                />
+              `,
+            )}
+          </div>
         </div>
       </div>
     `;
