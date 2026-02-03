@@ -426,6 +426,20 @@ nav {
     }
   }
 
+  /* Allow body to scroll on mobile so nav moves away */
+  body {
+    height: auto !important;
+    overflow-y: auto !important;
+    display: block !important;
+  }
+
+  /* Remove flex scrolling from app on mobile */
+  #app {
+    overflow: visible !important;
+    height: auto !important;
+    padding-top: 0; /* Remove top padding if nav scrolls */
+  }
+
   .dropdown-content {
     position: static; /* Stack inline on mobile */
     box-shadow: none;
