@@ -2,6 +2,10 @@ body {
   font-family: Arial, sans-serif;
   background-color: #e2fde2;
   margin: 0; /* Reset default margin */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Prevent body scroll */
 }
 
 nav {
@@ -10,8 +14,10 @@ nav {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-bottom: 30px;
   flex-wrap: wrap; /* Allow wrapping on small screens */
+  flex-shrink: 0; /* Prevent nav from shrinking */
+  position: relative; /* Ensure z-index works */
+  z-index: 100; /* Ensure nav stays on top of scrolling content */
 
   div {
     color: white;
@@ -42,6 +48,14 @@ nav {
       color: lightgray; /* Improved contrast */
     }
   }
+}
+
+#app {
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Scrollable content */
+  overflow-x: hidden;
+  width: 100%;
+  padding-top: 30px; /* Add spacing here so scrollbar spans it */
 }
 
 .dropbtn {

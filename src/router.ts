@@ -13,4 +13,13 @@ export const initRouter = () => {
         {path: '/preise', component: 'price-component'},
         {path: '/kontakt', component: 'impressum-component'}
     ]);
+
+    window.addEventListener('vaadin-router-location-changed', () => {
+        if (outlet) {
+            outlet.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+    });
 };
