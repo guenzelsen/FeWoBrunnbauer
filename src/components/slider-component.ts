@@ -1,4 +1,4 @@
-import {css, html, LitElement} from "lit";
+import {html, LitElement} from "lit";
 import {customElement, property, state} from "lit/decorators.js";
 
 @customElement('slider-component')
@@ -9,9 +9,6 @@ export class SliderComponent extends LitElement{
 
     @property({ type: String })
     private location = "/images/start/"
-
-    @property({ type: Number})
-    private sliderZIndex = -1;
 
     @property({ type: String })
     private imageHeight = "60rem"
@@ -30,55 +27,10 @@ export class SliderComponent extends LitElement{
 
     private pendingIndex: number | null = null;
 
-    static styles = css`
-        :host {
-            display: flex;
-            width: 100%;
-
-            .slider-container {
-                position: relative;
-                width: 100%;
-                display: flex;
-                justify-content: center;
-            }
-
-            .fade-out {
-                opacity: 0 !important;
-            }
-            
-            img {
-                width: 100%;
-                display: block;
-                opacity: 1;
-                transition: opacity 0.2s ease-in-out;
-            }
-            
-            button {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(0, 0, 0, 0.5);
-                color: white;
-                border: none;
-                padding: 10px;
-                cursor: pointer;
-                font-size: 24px;
-                z-index: 9999;
-            }
-            
-            button:hover {
-                background: rgba(0, 0, 0, 0.7);
-            }
-            
-            button:first-of-type {
-                left: 10px;
-            }
-
-            button:last-of-type {
-                right: 10px;
-            }
-        }
-    `;
+    // Use createRenderRoot to render into the light DOM so global styles apply
+    createRenderRoot() {
+        return this;
+    }
 
     private changeImage(newIndex: number) {
         if (this.fading) return; // prevent overlapping animations
@@ -122,10 +74,12 @@ export class SliderComponent extends LitElement{
 
     render(){
         return html`
-            <div class="slider-container">
-                <button @click="${() => this.shift(-1)}"> < </button>
-                <img class="${this.fading ? 'fade-out' : ''}" style="z-index: ${this.sliderZIndex}; max-height: ${this.imageHeight}" src="${this.location}${this.currentIndex}.${this.imageExtension}" alt="">
-                <button @click="${() => this.shift(1)}"> > </button>
+            <div class="slider-component">
+                <div class="slider-container" style="height: ${this.imageHeight}">
+                    <button @click="${() => this.shift(-1)}"> < </button>
+                    <img class="${this.fading ? 'fade-out' : ''}" src="${this.location}${this.currentIndex}.${this.imageExtension}" alt="">
+                    <button @click="${() => this.shift(1)}"> > </button>
+                </div>
             </div>
         `
     }

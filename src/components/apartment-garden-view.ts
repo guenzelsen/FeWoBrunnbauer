@@ -54,7 +54,6 @@ export class ApartmentGardenView extends LitElement {
           <apartment-basic-info></apartment-basic-info>
           <div class="slider">
             <slider-component
-              sliderZIndex="5"
               location="/images/garten/"
               imageHeight="750px"
               updateIndex="${this.selectedImage}"
